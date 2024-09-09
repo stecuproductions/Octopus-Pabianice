@@ -1,0 +1,366 @@
+html, body {
+    height:100%;
+    padding:0px;
+    margin:0%;
+    font-family: "montserrat";
+    
+}
+#on-load-page {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dwie kolumny: jedna dla każdego obrazu */
+    align-content: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    gap: 80px;
+}
+
+#on-load-page::before {
+    content: "";
+    position: absolute;
+    object-fit: cover;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: url('./images/tlo-strona-glowna.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(5px);
+    opacity: 0.7;
+    z-index: -1;
+    transform: scale(1.1);
+}
+.hamburger {
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid #cccccc; /* Ramka wokół przycisku */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    background-color: black;
+    height:90%;
+    visibility: hidden;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    margin:auto;
+}
+
+/* Każda linia w przycisku */
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff; /* Kolor linii */
+    margin: 5px 0; /* Odstępy między liniami */
+}
+
+/* Opcjonalnie: Efekt po najechaniu */
+.my-navbar{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    margin-top: auto;
+    gap:20px;
+    padding-left: 10px;
+    align-items: center;
+}
+.my-navbar-expanded{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display:grid;
+    grid-template-columns: 1 1fr;
+    grid-template-rows: 1fr auto;
+    padding-left: 10px;
+}
+
+
+.navbar-elements-expanded{
+    visibility: visible;
+    grid-row-start: 2;
+    display:flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.navbar-elements{
+    display: flex;
+    gap:20px;
+}
+.navbar-elements > a, .navbar-elements-expanded > a {
+   font-family: Poppins;
+   font-weight: 700;
+   font-size:1em;
+}
+#octopus-navbar-logo{
+    width: 100px;
+}
+
+.logos-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: 3; /* Logo obejmuje dwie kolumny */
+}
+.oct-logo{
+    justify-self: end; 
+    padding-bottom: 30px;
+}
+
+#on-load-page img {
+    object-fit: contain;
+    max-width: 450px; /* Obrazy mogą mieć maksymalnie 350px szerokości */
+    width: 100%; /* Upewniamy się, że obraz dostosuje się do rozmiaru kontenera, ale nie przekroczy 350px */
+    opacity: 0;
+    align-self: baseline;
+}
+
+.anchor-elements-div {
+    display: flex;
+    gap: 60px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: center;
+}
+
+.anchor-elements-div > a {
+    text-decoration: none;
+    color: white;
+    font-size: 3.5rem;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.anchor-elements-div > a:hover {
+    color: black;
+}
+
+.search-button{
+    background-color: white;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 7px;
+    width:50%;
+    border-style: solid;
+    color:black;
+    font-family: montserrat;
+    font-size: 1.2rem;
+    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+.search-button:hover{
+    border-color: black;
+    color:white;
+    background-color: black;
+}
+
+
+
+/* O nas */
+
+
+#o-nas-section {
+    background-image: url("./smieci/tlo-onas.png"); /* Twoje tło */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-rows: auto 1fr ;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    z-index: 1;
+    padding-bottom:20px;
+    height: fit-content;
+}
+
+#o-nas-intro{
+    grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+#o-nas-intro-heading {
+    grid-row-start: 2;
+    padding-left: 20px;
+    padding-top:10px;
+}
+#o-nas-intro-heading h1{
+    font-family: "Poppins", sans-serif;
+    font-size:50px;
+    color:#343439;
+    font-weight: 700;
+}
+
+#o-nas-intro-paragraph {
+    grid-row-start: 3;
+    padding: 20px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#o-nas-intro-paragraph p {
+    font-family: "Poppins";
+    line-height: 1.5;
+    font-size: 1.3rem;
+}
+
+#o-nas-intro-paragraph img{
+    width:60%;
+    align-self: center;
+}
+
+#o-nas-intro-right{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+#trapezoid {
+   justify-self: center;
+   align-self: center;
+}
+#trapezoid img{
+    height: auto;
+}
+#o-nas-intro-right-text{
+    color:white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#o-nas-intro-right-text h2{
+    font-family: "Poppins";
+    line-height: 1.8;
+    font-size:1.5rem
+}
+
+
+
+
+@media(max-width:1200px){
+
+
+    #on-load-page {
+        gap: 40px; 
+    }
+
+    .logos-div > img {
+        max-width: 350px;
+    }
+
+    .anchor-elements-div {
+        gap: 30px; 
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .anchor-elements-div > a {
+        font-size: 2.5rem; 
+    }
+    #trapezoid img{
+        visibility: none;
+    }
+    #o-nas-section{
+        background-color: #cfd3d6;
+        background-image: url("images/background-phones.png");
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        background-size: 60%;
+
+    }
+    #o-nas-intro-right{
+        color:black;
+        gap:0px;
+    }
+    #trapezoid{
+        display: none;
+    }
+    
+    #o-nas-intro-right h2{
+        color:black;
+        font-size:1.1rem;
+        font-weight: 600;
+        margin: 0px;;
+    }
+
+}
+
+@media(max-width:700px){
+    .my-navbar{
+        
+    }
+  
+.hamburger{
+    margin-right:30px;
+    visibility: visible;
+   }
+    body {
+        font-size: 1.2rem;
+    }
+    .logos-div{
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap:50px;
+    }
+   
+    #on-load-page img {
+        object-fit: contain;
+        opacity: 0;
+        align-self: center;
+        max-width: 300px;
+    }
+    .anchor-elements-div > a {
+        font-size: 1.5rem; /* Zmniejsz rozmiar czcionki linków */
+    }
+    .anchor-elements-div{
+        margin:0px 30px 0px 30px;
+    }
+    #on-load-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap:50px;
+    }
+    .oct-logo{
+        padding-bottom: 0px;
+    }
+    #on-load-page::before {
+        background-position: bottom 50px left -300px;   
+     }
+     .navbar-elements{
+        display: none;
+        grid-row-start: 2;
+    }
+ 
+    #octopus-navbar-logo{
+        width:60px;
+    }
+     #o-nas-section{
+       height: fit-content;
+       background-size: 100%;
+       background-position: center;
+
+     }
+     #o-nas-intro-heading h1{
+        font-size: 1.5rem;
+     }
+     #o-nas-intro-paragraph{
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+     }
+     #o-nas-intro-paragraph p{
+        font-size:1rem;
+     }
+}
+
+    
