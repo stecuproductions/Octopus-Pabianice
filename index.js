@@ -28,7 +28,6 @@ $(".hamburger").click(function(){
         console.log($("#navbar-elements-toggle-tool").hasClass("navbar-elements-expanded"));
 
 
-
         if ($("#toggle-navbar-element").hasClass("my-navbar-expanded")) {
             console.log("expanded");
         }
@@ -36,3 +35,9 @@ $(".hamburger").click(function(){
             console.log("No expanded");
         }
 })
+
+$(".box-content").hover(function(){
+    $(this).find(".sport-description").css("visibility", "visible");
+}, function(){
+    $(this).find(".sport-description").css("visibility", "hidden");
+});

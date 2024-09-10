@@ -4,6 +4,18 @@ html, body {
     margin:0%;
     font-family: "montserrat";    
 }
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("./images/body-background.png");
+    opacity: 0.1;  /* Ustawienie przezroczystości obrazu */
+    z-index: 0;   /* Upewnij się, że pseudo-element jest za innymi treściami */
+    background-repeat: repeat;
+}
 #on-load-page {
     height: auto;
     overflow: hidden;
@@ -49,6 +61,7 @@ html, body {
     grid-column-start: 2;
     grid-row-start: 1;
     margin:auto;
+    z-index: 1;
 }
 
 /* Każda linia w przycisku */
@@ -182,6 +195,7 @@ html, body {
    #o-nas-section{
        grid-template-rows: 100px 500px;
    }
+}
   @media (min-width:1300px) {
    #o-nas-section{
        grid-template-rows: 100px 475px;
@@ -286,6 +300,85 @@ html, body {
 }
 
 
+/* Nasze zajecia section */
+
+#nasze-zajecia-section{
+   padding-bottom: 50px; 
+}
+.new-section-intro{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.new-section-intro h1{
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;;
+    font-weight: 700;
+}
+.new-section-intro p{
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+}
+
+#photo-boxes{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap:20px;
+    z-index: -1;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+}
+.box-text h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+.box-text{
+    text-align: center;
+}
+.box-content{
+    width:70%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    background-size: 100%;
+    z-index: 1;
+    border-style: solid;
+    border-width: 5px;
+    border-color:black;
+    border-radius: 4px;
+    display: flex;
+    background-blend-mode: darken;      /* Tryb mieszania tła */
+    transition: background-color 0.3s ease; /* Płynne przejście przyciemnienia */
+
+    
+}
+.box-content:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.sport-description{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    visibility: hidden;
+
+}
+.sport-description p{
+    font-family: "Poppins";
+    color:white;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+
 
 
 @media(max-width:1200px){
@@ -313,7 +406,7 @@ html, body {
     }
     #o-nas-section{
         background-color: #cfd3d6;
-        background-image: url("images/background-phones.png");
+        background-image: url("./images/background-phones.png");
         display: flex;
         flex-direction: column;
         height: auto;
@@ -334,13 +427,14 @@ html, body {
         font-weight: 600;
         margin: 0px;;
     }
+    #photo-boxes{
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
 
 @media(max-width:700px){
-    .my-navbar{
-        
-    }
+    
   
 .hamburger{
     margin-right:30px;
@@ -404,15 +498,11 @@ html, body {
      #o-nas-intro-paragraph p{
         font-size:1rem;
      }
+     #photo-boxes{
+        grid-template-columns: 1fr;
+    }
 }
 
-@media(min-width:2300px){
-    #trapezoid{
-    height: 100%;
-    }
-    #trapezoid img{
-    height: 100%;
-    }
-}
+
 
     
