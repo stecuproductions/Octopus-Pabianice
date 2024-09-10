@@ -2,8 +2,7 @@ html, body {
     height:100%;
     padding:0px;
     margin:0%;
-    font-family: "montserrat";
-    
+    font-family: "montserrat";    
 }
 #on-load-page {
     height: auto;
@@ -166,7 +165,6 @@ html, body {
 
 
 #o-nas-section {
-    background-image: url("./smieci/tlo-onas.png"); /* Twoje tło */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -176,8 +174,51 @@ html, body {
     margin: 0;
     z-index: 1;
     padding-bottom:20px;
-    height: fit-content;
-}
+    height: fit-content; 
+    
+  
+  }
+  @media (min-width:120px) {
+   #o-nas-section{
+       grid-template-rows: 100px 500px;
+   }
+  @media (min-width:1300px) {
+   #o-nas-section{
+       grid-template-rows: 100px 475px;
+   }
+  }
+  @media (min-width:1500px) {
+   #o-nas-section{
+       grid-template-rows: 100px 450px;
+   }
+  }
+  @media (min-width:1650px) {
+   #o-nas-section{
+       grid-template-rows: 100px 425px;
+   }
+  }
+  @media (min-width:1900px) {
+   #o-nas-section{
+       grid-template-rows: 100px 400px;
+   }
+  }
+  @media (min-width:2300px) {
+   #o-nas-section{
+       grid-template-rows: 100px 350px;
+   }
+   #trapezoid{
+    height: 100%;
+   }
+   #trapezoid img{
+    height: 100%;
+   }
+  }
+  @media (min-width:3000px) {
+   #o-nas-section{
+       grid-template-rows: 100px 300px;
+   }
+
+  }
 
 #o-nas-intro{
     grid-row-start: 2;
@@ -226,9 +267,10 @@ html, body {
 #trapezoid {
    justify-self: center;
    align-self: center;
+   height: 60%;
 }
 #trapezoid img{
-    height: auto;
+    height: 100%;
 }
 #o-nas-intro-right-text{
     color:white;
@@ -239,7 +281,8 @@ html, body {
 #o-nas-intro-right-text h2{
     font-family: "Poppins";
     line-height: 1.8;
-    font-size:1.5rem
+    font-size:1.5rem;
+    color:#545454
 }
 
 
@@ -361,6 +404,15 @@ html, body {
      #o-nas-intro-paragraph p{
         font-size:1rem;
      }
+}
+
+@media(min-width:2300px){
+    #trapezoid{
+    height: 100%;
+    }
+    #trapezoid img{
+    height: 100%;
+    }
 }
 
     
