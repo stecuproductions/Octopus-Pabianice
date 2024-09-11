@@ -41,3 +41,16 @@ $(".box-content").hover(function(){
 }, function(){
     $(this).find(".sport-description").css("visibility", "hidden");
 });
+
+$(".choose-coach p").click(function(){
+    var coachName = $(this).text();  // Użyjemy .text() do pobrania tekstu elementu <p>
+    console.log(coachName);
+    switch (coachName){
+        case 'Dariusz "Dareczek" Nazwisko - BJJ początkujący':
+            console.log("Darek");
+            $(".coach-box-left h2").text('Dariusz "Dareczek" Nazwisko')
+            $(".coach-box-left p").text('Dariusz Nazwisko to doświadczony trener ju-jitsu z wieloletnim stażem, który swoją przygodę ze sztukami walki rozpoczął już w młodości. Jako były zawodnik, zdobywał wiedzę i umiejętności, które teraz przekazuje swoim podopiecznym. W swoim dojo skupia się na precyzji technik, skuteczności w realnych sytuacjach oraz budowaniu mentalnej siły. Jego indywidualne podejście do każdego ucznia i nowoczesne metody treningowe sprawiają, że jego kursanci osiągają wysokie wyniki zarówno na macie, jak i w życiu codziennym.')
+            $(".coach-box-right img").attr("src", "./images/kadra/dareczek.png")
+
+    }
+});
