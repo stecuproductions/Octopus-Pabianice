@@ -13,43 +13,10 @@ body::before {
     bottom: 0;
     background-image: url("./images/body-background.png");
     opacity: 0.1;  /* Ustawienie przezroczystości obrazu */
-    z-index: 0;   /* Upewnij się, że pseudo-element jest za innymi treściami */
+    z-index: -1;   /* Upewnij się, że pseudo-element jest za innymi treściami */
     background-repeat: repeat;
 }
-#on-load-page {
-    height: auto;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dwie kolumny: jedna dla każdego obrazu */
-    align-content: center;
-    justify-content: center;
-    color: white;
-    z-index: 1;
-    gap: 80px;
-}
 
-#on-load-page::before {
-    content: "";
-    position: absolute;
-    object-fit: cover;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background-image: url('./images/tlo-strona-glowna.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: blur(5px);
-    opacity: 0.7;
-    z-index: -1;
-    transform: scale(1.1);
-}
 .hamburger {
     cursor: pointer;
     padding: 10px;
@@ -122,63 +89,6 @@ body::before {
 }
 #octopus-navbar-logo{
     width: 100px;
-}
-
-.logos-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column-start: 1;
-    grid-column-end: 3; /* Logo obejmuje dwie kolumny */
-}
-.oct-logo{
-    justify-self: end; 
-    padding-bottom: 30px;
-}
-
-#on-load-page img {
-    object-fit: contain;
-    max-width: 450px; /* Obrazy mogą mieć maksymalnie 350px szerokości */
-    width: 100%; /* Upewniamy się, że obraz dostosuje się do rozmiaru kontenera, ale nie przekroczy 350px */
-    opacity: 0;
-    align-self: baseline;
-}
-
-.anchor-elements-div {
-    display: flex;
-    gap: 60px;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    justify-content: center;
-}
-
-.anchor-elements-div > a {
-    text-decoration: none;
-    color: white;
-    font-size: 3.5rem;
-    transition: color 0.3s ease, font-weight 0.3s ease;
-}
-
-.anchor-elements-div > a:hover {
-    color: black;
-}
-
-.search-button{
-    background-color: white;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 7px;
-    width:50%;
-    border-style: solid;
-    color:black;
-    font-family: montserrat;
-    font-size: 1.2rem;
-    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-}
-.search-button:hover{
-    border-color: black;
-    color:white;
-    background-color: black;
 }
 
 
@@ -330,6 +240,8 @@ body::before {
 .new-section-intro p{
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
+    padding:0px 10px 0px 10px;
+    font-size: 1.5rem;
 }
 
 #photo-boxes{
@@ -406,7 +318,12 @@ body::before {
     flex-wrap: wrap;
 }
 .choose-coach p{
-    z-index: 2;
+    z-index: 2;  
+    cursor: pointer;
+}
+.collapse-icon{
+    justify-self: center;
+    display: none;
 }
 
 
@@ -448,11 +365,10 @@ body::before {
 }
 
 .coach-box-right img {
-    border-radius: 50%; /* Nadaje zdjęciu okrągły kształt */
-    width: 60%; /* Dostosuj wielkość obrazu */
-    aspect-ratio: 1/1; /* Ustaw proporcje obrazka */
+    width: 40%; /* Dostosuj wielkość obrazu */
     object-fit: cover; /* Dopasowanie obrazu wewnątrz okrągłego kontenera */
     border: 5px solid black; /* Opcjonalne obramowanie wokół obrazu */
+    object-fit: contain;
 }
 
 .box-with-arrows{
@@ -460,18 +376,51 @@ body::before {
     background-color: black;
     flex-wrap: nowrap;
 }
-.carousel-arrow{
-    height: 10%;
-    align-self: center;
-    margin-right: 5px;
-    margin-left: 5px;
+@keyframes moveDown{
+    16.66% {
+        transform: rotate(180deg) translateY(0px); 
+    }
+    33.33% {
+        transform: rotate(180deg) translateY(-5px); 
+    }
+    50% {
+        transform: rotate(180deg) translateY(0px); 
+    }
+    66.6% {
+        transform: rotate(180deg) translateY(0px); 
+    }
+    83.3% {
+        transform: rotate(180deg) translateY(-5px); 
+    }
+    100% {
+        transform: rotate(180deg) translateY(0px); 
+    }
 }
+.on-scroll-collapse-icon{
+    animation: moveDown 4s ease-in-out;
+}
+
+@media(max-width:1600px){
+    .collapse-icon{
+        display: block;
+        justify-self: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .choose-coach{
+        flex-direction: column;
+    }
+    .choose-coach p{
+        display: none;
+    }
+    
+}
+
+
+
 @media(max-width:1200px){
 
 
-    #on-load-page {
-        gap: 40px; 
-    }
 
     .logos-div > img {
         max-width: 350px;
@@ -520,6 +469,9 @@ body::before {
     }
     .coach-box-right {
         justify-content: center;
+    }
+    .coach-box-right img {
+        width: 60%; 
     }
 
 }
@@ -607,6 +559,12 @@ body::before {
     }
     .coach-box-left h2 {
         margin-bottom: 10px;
+    }
+    .new-section-intro p{
+        font-family: 'Open Sans', sans-serif;
+        font-style: italic;
+        padding:0px 10px 0px 10px;
+        font-size: 1.5rem;
     }
     
 }
