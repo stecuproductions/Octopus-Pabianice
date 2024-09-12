@@ -329,15 +329,30 @@ body::before {
 
 .coach-box {
     position: relative;
-    background-color: black;
-    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     height: auto;
     margin: auto;
     padding: 20px;
+    background-image: url('./images/tlo-strona-glowna.jpg');
+    background-size: cover; /* Dopasowanie tła */
+    background-position: center center;
+    z-index: 1; /* Element główny z treścią */
 }
+
+.coach-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Ciemność tła */
+    z-index: -1; /* Pseudo-element będzie za treścią, ale przed obrazem */
+}
+
+
 
 .coach-box-left {
     flex: 1;
@@ -365,9 +380,8 @@ body::before {
 }
 
 .coach-box-right img {
-    width: 40%; /* Dostosuj wielkość obrazu */
+    width: 60%; /* Dostosuj wielkość obrazu */
     object-fit: cover; /* Dopasowanie obrazu wewnątrz okrągłego kontenera */
-    border: 5px solid black; /* Opcjonalne obramowanie wokół obrazu */
     object-fit: contain;
 }
 
