@@ -113,3 +113,33 @@ function animateIcon(){
 }
 
 animateIcon();
+
+$('#kadra-navbar-element').on('click', function() {
+    $('html, body').animate({
+        scrollTop: $('#nasza-kadra-section').offset().top
+    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
+});
+
+$('#o-nas-navbar-element').on('click', function() {
+    $('html, body').animate({
+        scrollTop: $('#o-nas-section').offset().top
+    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
+});
+
+$('#nasze-zajecia-navbar-element').on('click', function() {
+    $('html, body').animate({
+        scrollTop: $('#nasze-zajecia-section').offset().top
+    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
+});
+
+$('#nasze-zajecia-navbar-element').on('click', function() {
+    $('html, body').animate({
+        scrollTop: $('#nasze-zajecia-section').offset().top
+    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
+});
+
+$("#grafik-navbar-element").on('click', function() {
+    $('html, body').animate({
+        scrollTop: $('#grafik-zajec-section').offset().top
+    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
+});

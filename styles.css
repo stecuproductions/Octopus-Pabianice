@@ -74,6 +74,8 @@ body::before {
 .navbar-elements{
     display: flex;
     gap:20px;
+    align-content: center;
+    align-items: center;
 }
 .navbar-elements > a, .navbar-elements-expanded > a {
    font-family: Poppins;
@@ -81,6 +83,13 @@ body::before {
    font-size:1em;
    transition: font-size 0.3s ease;
 }
+.navbar-elements > svg, .navbar-elements-expanded > svg {
+    transition: height 0.3s ease;
+ }
+.navbar-elements  svg:hover, .navbar-elements-expanded  svg:hover {
+    height: 50px;
+ }
+
 .navbar-elements > a:hover, .navbar-elements-expanded > a:hover{
     font-size: 1.2rem;
 }
@@ -231,6 +240,8 @@ body::before {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    margin-top:50px;
+    margin-bottom: 2px;
 }
 .new-section-intro h1{
     font-size: 40px;
@@ -300,6 +311,33 @@ body::before {
     font-size: 1.2rem;
     z-index: 2;
 }
+
+
+/* Grafik Zajec */
+
+.grafik-div-img{
+    width: 100%;
+    display: flex;
+}
+.grafik-div-img img{
+    margin: auto;
+    width: 70%;
+    height: auto;
+    border-radius: 10%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Kadra section */
 
@@ -413,6 +451,27 @@ body::before {
 .on-scroll-collapse-icon{
     animation: moveDown 4s ease-in-out;
 }
+.footer-div{
+    padding-top: 50px;
+    background-color: black;
+}
+.footer-anchor-elements{
+    display: flex;
+    justify-content: center;
+    gap:50px;
+}
+
+
+/* KONTAKT STRONA */
+
+
+
+
+
+
+
+
+
 
 @media(max-width:1600px){
     .collapse-icon{
@@ -453,7 +512,6 @@ body::before {
         visibility: none;
     }
     #o-nas-section{
-        background-color: #cfd3d6;
         background-image: url("./images/background-phones.png");
         display: flex;
         flex-direction: column;
@@ -461,19 +519,15 @@ body::before {
         background-size: 60%;
 
     }
-    #o-nas-intro-right{
-        color:black;
-        gap:0px;
-    }
     #trapezoid{
         display: none;
     }
     
-    #o-nas-intro-right h2{
-        color:black;
-        font-size:1.1rem;
-        font-weight: 600;
-        margin: 0px;;
+    #o-nas-intro-right-text h2{
+        font-family: "Poppins";
+        line-height: 1.8;
+        font-size:1.2rem;
+        color:#343439;
     }
     #photo-boxes{
         grid-template-columns: 1fr 1fr;
@@ -486,6 +540,11 @@ body::before {
     }
     .coach-box-right img {
         width: 60%; 
+    }
+    .grafik-div-img img{
+        width: 90%;
+       
+    
     }
 
 }
@@ -573,12 +632,22 @@ body::before {
     }
     .coach-box-left h2 {
         margin-bottom: 10px;
+        font-size: 1rem;
     }
     .new-section-intro p{
         font-family: 'Open Sans', sans-serif;
         font-style: italic;
         padding:0px 10px 0px 10px;
         font-size: 1.5rem;
+    }
+    .new-section-intro h1{
+        font-size: 2rem;
+    }
+    .grafik-div-img img{
+        width: 95%;
+        
+       
+    
     }
     
 }

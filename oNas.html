@@ -24,19 +24,24 @@
     <div class="my-navbar" id="toggle-navbar-element">
         <img src="./images/Octopus-navbar-logo.png" alt="Logo" width="60"  id="octopus-navbar-logo">
         <div class="navbar-elements" id="navbar-elements-toggle-tool">
-          <a class="navbar-brand active-navbar-link" href="www.youtube.com">
+          <a class="navbar-brand active-navbar-link" href="#" id="o-nas-navbar-element">
             O nas
           </a>
-          <a class="navbar-brand" href="#"> 
-            Kontakt
+          <a class="navbar-brand" href="#" id="nasze-zajecia-navbar-element"> 
+            Naze Zajęcia
           </a>
-
-          <a class="navbar-brand" href="#"> 
-            Regulamin
+          <a class="navbar-brand" href="#" id="grafik-navbar-element"> 
+            Grafik
+          </a>
+          <a class="navbar-brand" href="#" id="kadra-navbar-element"> 
+            Kadra
           </a>
           <a class="navbar-brand" href="#"> 
             Cennik
           </a>
+          <a href="">
+            <svg fill="#212529" height="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve" stroke="#212529"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M272.8,560.7 c-20.8,20.8-44.9,37.1-71.8,48.4c-27.8,11.8-57.4,17.7-88,17.7c-30.5,0-60.1-6-88-17.7c-26.9-11.4-51.1-27.7-71.8-48.4 c-20.8-20.8-37.1-44.9-48.4-71.8C-107,461.1-113,431.5-113,401s6-60.1,17.7-88c11.4-26.9,27.7-51.1,48.4-71.8 c20.9-20.8,45-37.1,71.9-48.5C52.9,181,82.5,175,113,175s60.1,6,88,17.7c26.9,11.4,51.1,27.7,71.8,48.4 c20.8,20.8,37.1,44.9,48.4,71.8c11.8,27.8,17.7,57.4,17.7,88c0,30.5-6,60.1-17.7,88C309.8,515.8,293.5,540,272.8,560.7z"></path> <path d="M146.8,313.7c10.3,0,21.3,3.2,21.3,3.2l6.6-39.2c0,0-14-4.8-47.4-4.8c-20.5,0-32.4,7.8-41.1,19.3 c-8.2,10.9-8.5,28.4-8.5,39.7v25.7H51.2v38.3h26.5v133h49.6v-133h39.3l2.9-38.3h-42.2v-29.9C127.3,317.4,136.5,313.7,146.8,313.7z"></path> </g> </g></svg>          </a>
+
         </div>
         <div class="hamburger" style="justify-self:flex-end;">
             <div class="line"></div>
@@ -70,9 +75,7 @@
 
     <div id="nasze-zajecia-section">
       <div class="new-section-intro">
-        <h1>NASZE <span style="color:#545454"> ZAJĘCIA</span></h1>
-        <p>"Nie liczy się to, ile razy zostaniesz powalony na matę, ale to, ile razy wstaniesz." - Muhammad Ali</p>
-      </div>
+        <h1>NASZE <span style="color:#545454"> ZAJĘCIA</span></h1>      </div>
       <div id="photo-boxes">
         <div class="box">
           <div class="box-text">
@@ -140,10 +143,23 @@
 
     </div>
 
-    <div id="nasza-kadra-section">
+    <div id="grafik-zajec-section" >
       <div class="new-section-intro">
-        <h1>KADRA</h1>
-        <p>"Trener jest kimś, kto mówi ci, czego nie chcesz słyszeć, który widzi to, czego nie chcesz widzieć — po to, żebyś był kimś, kim zawsze chciałeś być." - Tom Landry.</p>
+        <h1>GRAFIK <span style="color:#545454"> ZAJĘĆ</span></h1>      
+      </div>
+      <div class="grafik-div-img">
+        <img src="./images/grafik2.jpg" alt="">
+      </div>
+    </div>
+
+
+
+
+
+
+    <div id="nasza-kadra-section" >
+      <div class="new-section-intro">
+        <h1>NASZA <span style="color:#545454"> KADRA</span></h1>      
       </div>
       <div class="choose-coach" id="coach-choice-collapse-or-expanded">
         <svg viewBox="0 0 1024 1024" class="collapse-icon" width="40px" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M106.666667 659.2L172.8 725.333333 512 386.133333 851.2 725.333333l66.133333-66.133333L512 256z" fill="#ffffff"></path></g></svg>        <p>Tomasz Janiak - Boks/K1</p>
@@ -155,19 +171,17 @@
   
         <div class="coach-box">
           <div class="coach-box-left">
-            <h2>Nasza Kadra</h2>
             <p>Nasza kadra to zespół wykwalifikowanych i doświadczonych trenerów, którzy z pasją i profesjonalizmem prowadzą zajęcia dla osób na każdym poziomie zaawansowania. Dzięki indywidualnemu podejściu do każdego uczestnika oraz nowoczesnym metodom treningowym, zapewniamy wysoki poziom nauczania i doskonałe efekty. Jesteśmy dumni z tego, że nasi trenerzy nieustannie rozwijają swoje umiejętności, aby zapewnić najlepsze warunki do rozwoju sportowego.</p>
           </div>
           <div class="coach-box-right">
-            <img src="./images/kadra/cala-kadra.png" alt="">
+            <img src="./images/kadra/fighter.png" alt="">
           </div>
         </div>
       </div>
-    </div>
-<h1 style="font-size: 5rem;">PODGLAD</h1>
-<h1 style="font-size: 5rem;">PODGLAD</h1>
+      
 
-<h1 style="font-size: 5rem;">PODGLAD</h1>
+
+  
 
 
 
