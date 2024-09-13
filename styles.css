@@ -64,16 +64,18 @@ body::before {
 
 
 .navbar-elements-expanded{
+    margin-top: 10px;
     visibility: visible;
     grid-row-start: 2;
     display:flex;
     flex-direction: column;
     padding-left: 10px;
+    gap:5px;
 }
 
 .navbar-elements{
     display: flex;
-    gap:20px;
+    gap:30px;
     align-content: center;
     align-items: center;
 }
@@ -277,7 +279,7 @@ body::before {
     text-align: center;
 }
 .box-content{
-    width:70%;
+    width:60%;
     aspect-ratio: 1 / 1;
     margin: auto;
     background-size: 100%;
@@ -289,6 +291,7 @@ body::before {
     display: flex;
     background-blend-mode: darken;      /* Tryb mieszania tła */
     transition: background-color 0.3s ease; /* Płynne przejście przyciemnienia */
+    padding:5px;
 
     
 }
@@ -462,7 +465,127 @@ body::before {
 }
 
 
-/* KONTAKT STRONA */
+/* SEKCJA KARNETY */
+
+#karnety-section{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}
+
+
+.table-intro {
+    padding-left: 10px;
+}
+.table-intro h1 {
+    font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #212529; /* Ciemnoszary tekst */
+    text-align: center;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #333333; /* Ciemnoszary obramowanie */
+}
+
+.table-header {
+    background-color: #333333; /* Ciemnoszary nagłówek */
+    color: #ffffff; /* Biały tekst */
+}
+
+.table-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 3px solid #F5F5F5; /* Jasnoszare linie oddzielające wiersze */
+    background-color: #FFFFFF; /* Białe tło wierszy */
+    color: #333333; /* Ciemnoszary tekst */
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+}
+
+.table-row:nth-child(odd) {
+    background-color: #F5F5F5; /* Jasnoszare tło dla nieparzystych wierszy */
+}
+
+.table-header .table-row {
+    font-weight: bold;
+}
+
+.last-cell {
+    border-bottom: 0px;
+}
+
+.table-cell {
+    flex: 1;
+    text-align: left;
+}
+
+.table-cell:first-child {
+    padding-left: 10px;
+}
+
+.table-cell:last-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.table-row:hover {
+    background-color: #E0E0E0; /* Efekt hover - jasnoszary */
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.subs-card {
+    width: 20%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    background-color: transparent;
+    transition: width 0.3s ease;
+    
+}
+.subs-card:hover {
+    width: 25%;    
+}
+.cards{
+    margin-top: 7%;
+}
+
+/* Ustawienie rotacji dla każdej karty */
+.medicover {
+    transform: rotate(45deg);
+}
+
+.fitprofit {
+    transform: rotate(45deg);
+}
+
+.multisport-plus {
+    transform: rotate(45deg);
+}
+
+
+
+  
+ 
+  
 
 
 
@@ -546,6 +669,22 @@ body::before {
        
     
     }
+    .price-box {
+        width: 40%; 
+    }
+    .price-box h2 {
+        font-size: 1.2rem;
+    }
+    .subs-card {
+        width: 30%;
+    }
+    .subs-card:hover {
+        width: 35%;
+    }
+    .cards{
+        margin-top: 12%;
+    }
+
 
 }
 
@@ -645,9 +784,9 @@ body::before {
     }
     .grafik-div-img img{
         width: 95%;
-        
-       
-    
+    }
+    .box-content{
+        width:70%;           
     }
     
 }

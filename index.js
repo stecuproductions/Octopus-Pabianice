@@ -114,32 +114,36 @@ function animateIcon(){
 
 animateIcon();
 
-$('#kadra-navbar-element').on('click', function() {
+const scrollToSection = (sectionId) => {
     $('html, body').animate({
-        scrollTop: $('#nasza-kadra-section').offset().top
-    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
+        scrollTop: $(sectionId).offset().top
+    }, 0); // Można dostosować prędkość animacji poprzez zmianę liczby 0 na inną wartość (np. 1000 dla płynnego przewijania)
+};
+
+$('.navbar-element').on('click', function() {
+    const targetId = $(this).attr('id');
+    
+    switch (targetId) {
+        case 'kadra-navbar-element':
+            scrollToSection('#nasza-kadra-section');
+            break;
+        case 'o-nas-navbar-element':
+            scrollToSection('#o-nas-section');
+            break;
+        case 'nasze-zajecia-navbar-element':
+            scrollToSection('#nasze-zajecia-section');
+            break;
+        case 'grafik-navbar-element':
+            scrollToSection('#grafik-zajec-section');
+            break;
+        case 'karnety-navbar-element':
+            scrollToSection('#scroll-to-karnety');
+            break;
+        default:
+            console.log('Nieznany element navbaru.');
+            break;
+    }
 });
 
-$('#o-nas-navbar-element').on('click', function() {
-    $('html, body').animate({
-        scrollTop: $('#o-nas-section').offset().top
-    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
-});
 
-$('#nasze-zajecia-navbar-element').on('click', function() {
-    $('html, body').animate({
-        scrollTop: $('#nasze-zajecia-section').offset().top
-    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
-});
 
-$('#nasze-zajecia-navbar-element').on('click', function() {
-    $('html, body').animate({
-        scrollTop: $('#nasze-zajecia-section').offset().top
-    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
-});
-
-$("#grafik-navbar-element").on('click', function() {
-    $('html, body').animate({
-        scrollTop: $('#grafik-zajec-section').offset().top
-    }, 0); // 1000 oznacza 1 sekundę na płynne przewijanie
-});
