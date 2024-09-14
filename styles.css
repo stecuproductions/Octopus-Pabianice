@@ -2,7 +2,10 @@ html, body {
     height:100%;
     padding:0px;
     margin:0%;
-    font-family: "montserrat";    
+    font-family: "montserrat";   
+}
+a{
+    cursor:pointer;
 }
 body::before {
     content: "";
@@ -16,6 +19,82 @@ body::before {
     z-index: -1;   /* Upewnij się, że pseudo-element jest za innymi treściami */
     background-repeat: repeat;
 }
+.decrease-brightness{
+    filter: brightness(20%);     
+
+}
+
+/*Collapse navbar section*/
+.side-navbar-collapse{
+    display: flex;
+    position: fixed;
+    right: 0px;
+    z-index: 2;
+}
+.collapse-arrow > img{
+    transform: rotate(90deg);
+    right: -40px;
+    z-index: 2;
+    height: 40px;
+}
+.collapse-arrow{
+    opacity: 0.5;
+}
+.collapse-arrow-white {
+    filter: invert(100%); /* Zmiana koloru na biały */
+}
+
+@keyframes moveLeft{
+    16.66% {
+        transform: translateX(0px); 
+    }
+    33.33% {
+        transform: translateX(-5px); 
+    }
+    50% {
+        transform: translateX(0px); 
+    }
+    66.6% {
+        transform:  translateX(0px); 
+    }
+    83.3% {
+        transform:  translateX(-5px); 
+    }
+    100% {
+        transform: translateX(0px); 
+    }
+}
+
+.sidebar-animation-class{
+    animation: moveLeft 8s infinite;
+}
+
+
+.collapse-navbar{
+    display: none;
+}
+.side-navbar-content{
+    flex-direction: column;
+    width:200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 100vh;
+    padding-left: 20px;
+    gap:10px;
+}
+.side-navbar-content a{
+    font-family: Poppins;
+   font-weight: 700;
+   font-size:1em;
+   transition: font-size 0.3s ease;
+   display: block;
+   margin-bottom: 10px;
+}
+
+.animation-class{
+    animation: moveDown 4s ease-in-out;
+}
+
+
 
 .hamburger {
     cursor: pointer;
@@ -49,7 +128,7 @@ body::before {
     gap:20px;
     padding-left: 10px;
     align-items: center;
-    z-index:2;
+    z-index:1;
 }
 
 .my-navbar-expanded{
@@ -72,6 +151,7 @@ body::before {
     padding-left: 10px;
     gap:5px;
 }
+
 
 .navbar-elements{
     display: flex;
@@ -546,14 +626,14 @@ body::before {
 }
 .cards {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-top: 20px;
     gap: 10px;
 }
 
 .subs-card {
-    width: 20%;
+    width: 15%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -562,7 +642,7 @@ body::before {
     
 }
 .subs-card:hover {
-    width: 25%;    
+    width: 20%;    
 }
 .cards{
     margin-top: 7%;
@@ -582,9 +662,32 @@ body::before {
 }
 
 
+/* KONTAKT SECTION */
+#kontakt-section{
+    margin-top: 100px;
 
-  
- 
+}
+.contact-column{
+    width: 23%;
+}  
+.contact-forms{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    height: auto; /* Zachowanie proporcji wysokości */
+    padding-top:20px;
+
+}
+.contact-forms svg{
+    width:20%
+}
+
+.contact-column p{
+    text-decoration: underline;
+    font-family: "Poppins";
+    font-weight: 500;
+}
   
 
 
@@ -609,7 +712,18 @@ body::before {
     .choose-coach p{
         display: none;
     }
-    
+    .contact-forms{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap:20px;
+    }
+    .contact-column{
+        width: 100%;
+    }
+    .contact-forms svg{
+        width:15%
+    }
 }
 
 
@@ -684,17 +798,29 @@ body::before {
     .cards{
         margin-top: 12%;
     }
-
+    .hamburger{
+        margin-right:30px;
+        visibility: visible;
+    }
+    .navbar-elements{
+        display: none;
+        grid-row-start: 2;
+    }
+    
 
 }
 
 @media(max-width:700px){
     
-  
-.hamburger{
-    margin-right:30px;
-    visibility: visible;
-   }
+    .side-navbar{
+       top: 30px; /* Wyśrodkowanie w pionie */
+    }
+    .side-navbar img{
+        transform: rotate(90deg);
+        height:70px;
+        opacity: 0.2;
+    }
+
     body {
         font-size: 1.2rem;
     }
@@ -729,10 +855,7 @@ body::before {
     #on-load-page::before {
         background-position: bottom 50px left -300px;   
      }
-     .navbar-elements{
-        display: none;
-        grid-row-start: 2;
-    }
+  
  
     #octopus-navbar-logo{
         width:60px;
@@ -788,7 +911,16 @@ body::before {
     .box-content{
         width:70%;           
     }
-    
+    .contact-forms{
+        display: flex;
+       flex-direction: column;
+    }
+    .contact-forms svg{
+       width: 10%;
+    }
+    .contact-forms p{
+        font-size: 1rem;
+     }
 }
 
 

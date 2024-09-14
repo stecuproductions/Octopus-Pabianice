@@ -121,12 +121,9 @@ const scrollToSection = (sectionId) => {
 };
 
 $('.navbar-element').on('click', function() {
-    const targetId = $(this).attr('id');
-    
-    switch (targetId) {
-        case 'kadra-navbar-element':
-            scrollToSection('#nasza-kadra-section');
-            break;
+    const classList = $(this).attr('class').split(' '); // Pobranie listy klas jako tablicy
+    const targetClass = classList[2]; // Pobranie trzeciej klasy (indeks 2)    
+    switch (targetClass) {
         case 'o-nas-navbar-element':
             scrollToSection('#o-nas-section');
             break;
@@ -136,14 +133,51 @@ $('.navbar-element').on('click', function() {
         case 'grafik-navbar-element':
             scrollToSection('#grafik-zajec-section');
             break;
+        case 'kadra-navbar-element':
+                scrollToSection('#nasza-kadra-section');
+                break;
         case 'karnety-navbar-element':
             scrollToSection('#scroll-to-karnety');
             break;
+        case 'kontakt-navbar-element':
+            scrollToSection('#kontakt-section');
+            break;
         default:
+            console.log(targetClass);
             console.log('Nieznany element navbaru.');
             break;
     }
 });
 
 
+
+$(".collapse-arrow img").click(function(){
+    $(".side-navbar-content").toggleClass("collapse-navbar");
+})
+
+
+
+function checkCollision() {
+    var arrow = $(".collapse-arrow");
+    var naszaKadraSection = $("#nasza-kadra-section");
+    var karnetySection = $("#scroll-to-karnety");
+
+    // Pobieranie pozycji i rozmiarów
+    var arrowOffset = arrow.offset();
+    var naszaKadraSectionOffset = naszaKadraSection.offset();    
+    var karnetySectionOffset = karnetySection.offset();
+
+    var boxOffSet= $(".box-content").offset();
+
+    
+    // Sprawdzanie, czy strzałka znajduje się pomiędzy sekcją nasza kadra a sekcją karnety
+if ((arrowOffset.top > naszaKadraSectionOffset.top && arrowOffset.top < karnetySectionOffset.top)) {
+        arrow.addClass("collapse-arrow-white");
+    } else {
+        arrow.removeClass("collapse-arrow-white");
+    }
+}
+
+// Użycie $(window) do śledzenia scrollowania
+$(window).on("scroll", checkCollision);
 
