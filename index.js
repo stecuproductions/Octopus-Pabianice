@@ -142,6 +142,10 @@ $('.navbar-element').on('click', function() {
         case 'kontakt-navbar-element':
             scrollToSection('#kontakt-section');
             break;
+        case "ogłoszenia-navbar-element":
+            scrollToSection('#ogloszenia-section');
+            break;
+
         default:
             console.log(targetClass);
             console.log('Nieznany element navbaru.');
@@ -157,27 +161,66 @@ $(".collapse-arrow img").click(function(){
 
 
 
-function checkCollision() {
-    var arrow = $(".collapse-arrow");
-    var naszaKadraSection = $("#nasza-kadra-section");
-    var karnetySection = $("#scroll-to-karnety");
+// //function checkCollision() {
+//     var arrow = $(".collapse-arrow");
+//     var naszaKadraSection = $("#nasza-kadra-section");
+//     var karnetySection = $("#scroll-to-karnety");
 
-    // Pobieranie pozycji i rozmiarów
-    var arrowOffset = arrow.offset();
-    var naszaKadraSectionOffset = naszaKadraSection.offset();    
-    var karnetySectionOffset = karnetySection.offset();
+//     // Pobieranie pozycji i rozmiarów
+//     var arrowOffset = arrow.offset();
+//     var naszaKadraSectionOffset = naszaKadraSection.offset();    
+//     var karnetySectionOffset = karnetySection.offset();
 
-    var boxOffSet= $(".box-content").offset();
+//     var boxOffSet= $(".box-content").offset();
 
     
-    // Sprawdzanie, czy strzałka znajduje się pomiędzy sekcją nasza kadra a sekcją karnety
-if ((arrowOffset.top > naszaKadraSectionOffset.top && arrowOffset.top < karnetySectionOffset.top)) {
-        arrow.addClass("collapse-arrow-white");
-    } else {
-        arrow.removeClass("collapse-arrow-white");
-    }
-}
+//     // Sprawdzanie, czy strzałka znajduje się pomiędzy sekcją nasza kadra a sekcją karnety
+// if ((arrowOffset.top > naszaKadraSectionOffset.top && arrowOffset.top < karnetySectionOffset.top)) {
+//         arrow.addClass("collapse-arrow-white");
+//     } else {
+//         arrow.removeClass("collapse-arrow-white");
+//     }
+// }
 
 // Użycie $(window) do śledzenia scrollowania
-$(window).on("scroll", checkCollision);
+//$(window).on("scroll", checkCollision);
+
+var cCounter = 0;
+const adminPasswordHash = 'e2564e25b390b175057fd55375dcf1f41898249feda8c2c668adec3f8d24c0df'; 
+
+// Funkcja do haszowania hasła (SHA-256)
+async function hashPassword(password) {
+    const msgUint8 = new TextEncoder().encode(password); // Encode jako UTF-8
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // Hash
+    const hashArray = Array.from(new Uint8Array(hashBuffer)); // Konwertuj buffer na byte array
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // Konwertuj byte array na string hex
+    return hashHex;
+}
+
+// Dodanie event listenera na kliknięcie
+$("#adm").click(async function(){
+    cCounter++;
+    if (cCounter == 2) {
+        var passwd = prompt("Wpisz hasło dla trybu admina");
+        if (passwd) {
+            // Hashowanie hasła wprowadzonego przez użytkownika
+            const enteredPasswordHash = await hashPassword(passwd);
+            
+            // Sprawdzenie, czy hasło jest poprawne
+            if (enteredPasswordHash === adminPasswordHash) {
+                alert("Tryb administratora aktywowany!");
+                // Tutaj możesz dodać logikę włączającą tryb administratora
+            } else {
+                alert("Niepoprawne hasło.");
+            }
+        }
+        cCounter = 0; // Zresetuj licznik kliknięć
+    }
+});
+
+
+
+const fs = require('fs');
+const path = require('path');
+const filePath = path.join(__dirname, 'bazadanychxD.txt');
 
