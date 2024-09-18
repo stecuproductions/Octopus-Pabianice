@@ -1,3 +1,6 @@
+
+var adminMode=false;
+
 const onLoadAnchors = $(".anchor-elements-div a")
 $(document).ready(function(){
     $("#on-load-page  img").animate({
@@ -13,6 +16,15 @@ $(document).ready(function(){
             opacity:1 
         }, 1200);
     });  
+
+    $.get("/getAnnouncement", function(response) {
+        if (response.content) {
+            // Zaktualizuj treść paragrafu #announcement-paragraph
+            $("#announcement-paragraph").text(response.content);
+        } else {
+            alert("Nie udało się załadować ogłoszenia.");
+        }
+    });
 });
 
 let isExpanded=false;
@@ -186,41 +198,52 @@ $(".collapse-arrow img").click(function(){
 //$(window).on("scroll", checkCollision);
 
 var cCounter = 0;
-const adminPasswordHash = 'e2564e25b390b175057fd55375dcf1f41898249feda8c2c668adec3f8d24c0df'; 
-
-// Funkcja do haszowania hasła (SHA-256)
-async function hashPassword(password) {
-    const msgUint8 = new TextEncoder().encode(password); // Encode jako UTF-8
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // Hash
-    const hashArray = Array.from(new Uint8Array(hashBuffer)); // Konwertuj buffer na byte array
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // Konwertuj byte array na string hex
-    return hashHex;
-}
-
+var adminMode=false;
 // Dodanie event listenera na kliknięcie
-$("#adm").click(async function(){
+// Dodanie event listenera na kliknięcie
+$("#adm").click(function() {
     cCounter++;
     if (cCounter == 2) {
         var passwd = prompt("Wpisz hasło dla trybu admina");
         if (passwd) {
-            // Hashowanie hasła wprowadzonego przez użytkownika
-            const enteredPasswordHash = await hashPassword(passwd);
-            
-            // Sprawdzenie, czy hasło jest poprawne
-            if (enteredPasswordHash === adminPasswordHash) {
-                alert("Tryb administratora aktywowany!");
-                // Tutaj możesz dodać logikę włączającą tryb administratora
-            } else {
-                alert("Niepoprawne hasło.");
-            }
+            $.post("/checkAdminPassword", { password: passwd }, function(response) {
+                if (response["status"] == "correct") {
+                    alert("Tryb admina pomyślnie aktywowany");
+                    adminMode = true;
+                    $("#change-announcement-content-button").css("display", "block");
+                    $("#change-announcement-content-button").click(function() {
+                        var newContent = prompt("Wprowadź zaktualizowaną treść ogłoszenia.");
+                        $.ajax({
+                            url: "updateAnnouncement",
+                            type: "PUT",
+                            data: JSON.stringify({ content: newContent }),
+                            contentType: "application/json", // Dodano contentType
+                            success: function(response) {
+                                if (response.success) {
+                                    $("#announcement-paragraph").text(newContent); // Poprawiona manipulacja DOM
+                                    alert("Treść ogłoszenia została zmieniona");
+                                } else {
+                                    alert("Nie udało się zmienić treści");
+                                }
+                            }
+                        })
+                    })
+                } else {
+                    alert("Hasło niepoprawne");
+                }
+            });
         }
-        cCounter = 0; // Zresetuj licznik kliknięć
     }
 });
 
 
 
-const fs = require('fs');
-const path = require('path');
-const filePath = path.join(__dirname, 'bazadanychxD.txt');
 
+
+
+
+
+
+
+
+  
